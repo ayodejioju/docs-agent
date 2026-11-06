@@ -9,7 +9,7 @@ export interface LLM {
     completions: {
       create(params: {
         model?: string;
-        messages: any[];
+        messages: OpenAI.ChatCompletionMessageParam[];
         temperature?: number;
         max_tokens?: number;
         tools?: any;

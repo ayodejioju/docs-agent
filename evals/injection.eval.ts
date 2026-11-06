@@ -9,9 +9,9 @@ import { Index, loadChunks } from "../src/retrieve.js";
 import { SYSTEM_PROMPT } from "../src/prompt.js";
 import type { LLM } from "../src/agent.js";
 
-const apiKey = process.env.OPENAI_API_KEY ?? process.env.ANTHROPIC_API_KEY;
+const apiKey = process.env.OPENAI_API_KEY ?? process.env.OPENAI_API_KEY;
 if (!apiKey) {
-  console.error("Set OPENAI_API_KEY (or ANTHROPIC_API_KEY) first (see README).");
+  console.error("Set OPENAI_API_KEY (or OPENAI_API_KEY) first (see README).");
   process.exit(1);
 }
 const baseUrl = process.env.OPENAI_BASE_URL; // e.g. https://api.groq.com/openai/v1

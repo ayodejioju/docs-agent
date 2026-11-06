@@ -1,6 +1,13 @@
 import type { Index } from "./retrieve.js";
 
-export const tools = [
+export type ToolName = "search_docs" | "list_docs";
+
+export interface ToolInput {
+  search_docs: { query: string };
+  list_docs: {};
+}
+
+export const toolDefinitions = [
   {
     type: "function" as const,
     function: {
@@ -9,7 +16,9 @@ export const tools = [
         "Search the internal documentation. Returns the most relevant passages with their source file and heading. Use short keyword queries. Call again with different keywords if the first results do not answer the question.",
       parameters: {
         type: "object",
-        properties: { query: { type: "string", description: "Keywords to search for" } },
+        properties: {
+          query: { type: "string", description: "Keywords to search for" },
+        },
         required: ["query"],
       },
     },
@@ -23,6 +32,9 @@ export const tools = [
     },
   },
 ];
+
+/** Legacy export - type is inferred from toolDefinitions */
+export const tools = toolDefinitions;
 
 /**
  * Passages are wrapped in <document> tags and labelled as untrusted data. The model

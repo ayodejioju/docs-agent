@@ -5,9 +5,9 @@ import { Index, loadChunks } from "./retrieve.js";
 
 const docsDir = process.argv[2] ?? "docs";
 
-const apiKey = process.env.OPENAI_API_KEY ?? process.env.ANTHROPIC_API_KEY;
+const apiKey = process.env.OPENAI_API_KEY ?? process.env.OPENAI_API_KEY;
 if (!apiKey) {
-  console.error("Set OPENAI_API_KEY (or ANTHROPIC_API_KEY) first (see README).");
+  console.error("Set OPENAI_API_KEY (or OPENAI_API_KEY) first (see README).");
   process.exit(1);
 }
 

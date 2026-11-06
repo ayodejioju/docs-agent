@@ -6,7 +6,7 @@ It is deliberately small, and it demonstrates the core pieces of a modern LLM ap
 
 | Concept | Where |
 |---|---|
-| LLM (the model) | Anthropic API via `@anthropic-ai/sdk` (`src/agent.ts`) |
+| LLM (the model) | OpenAI-compatible APIs via `@openai` SDK (`src/agent.ts`) |
 | RAG (retrieval) | BM25 search over heading-based chunks (`src/retrieve.ts`) |
 | Agent (model + tools in a loop) | `ask()` loop with a step limit (`src/agent.ts`) |
 | Tools | `search_docs`, `list_docs`, with input validation (`src/tools.ts`) |
@@ -17,13 +17,13 @@ It is deliberately small, and it demonstrates the core pieces of a modern LLM ap
 
 ```bash
 npm install
-export ANTHROPIC_API_KEY=your-key      # PowerShell: $env:ANTHROPIC_API_KEY="your-key"
+$env:OPENAI_API_KEY="your-key"      # PowerShell: $env:OPENAI_API_KEY="your-key"
 npm start                              # or: npm start -- path/to/your/docs
 ```
 
 Try: `Can we deploy on a Friday?`, `How do I roll back?`, `Who do I contact for hosting issues?`
 
-Override the model with `ANTHROPIC_MODEL=<model-id>` if you want a different one.
+Override the model with `OPENAI_MODEL=<model-id>` if you want a different one.
 
 ## Test it
 
